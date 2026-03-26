@@ -1,0 +1,10 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.category?.name }}</h6>
+    <p class="card-text">{{ post.content | slice:0:100 }}...</p>
+  </div>
+  <div class="card-footer bg-transparent">
+    <small class="text-body-secondary">Publié le {{ post.created_date | date:'longDate' }}</small>
+  </div>
+</div>
