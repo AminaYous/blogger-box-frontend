@@ -1,0 +1,23 @@
+<div *ngIf="(post$ | async) as post; else loading">
+  <div class="mb-3">
+    <button class="btn btn-outline-secondary btn-sm" (click)="goBack()">
+      <i class="bi bi-arrow-left"></i> Retour
+    </button>
+  </div>
+  <article>
+    <h1 class="mb-1">{{ post.title }}</h1>
+    <div class="mb-3 text-body-secondary">
+      <span class="badge bg-secondary me-2">{{ post.category.name }}</span>
+      <small>Publié le {{ post.createdDate | date:'longDate' }}</small>
+    </div>
+    <p class="lead" style="white-space: pre-wrap;">{{ post.content }}</p>
+  </article>
+</div>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center mt-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+  </div>
+</ng-template>
